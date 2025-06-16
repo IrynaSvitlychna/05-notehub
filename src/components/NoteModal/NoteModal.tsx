@@ -1,5 +1,5 @@
 import { useEffect, type MouseEvent } from "react";
-import ReactDOM from "react-dom";
+import {createPortal} from "react-dom";
 import css from "./NoteModal.module.css";
 import NoteForm from "../NoteForm/NoteForm";
 
@@ -38,7 +38,7 @@ export default function NoteModal({ onClose }: NoteModalProps) {
       }
     };
   
-    return ReactDOM.createPortal(
+    return createPortal(
       <div
         className={css.backdrop}
         role="dialog"

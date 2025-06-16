@@ -12,9 +12,7 @@ export interface Params {
 
   export interface PaginatedNotesResponse {
     notes: Note[];
-    // page: number;
     totalPages: number;
-    // totalResults: number;
   }  
  
 
@@ -36,13 +34,13 @@ export const fetchNotes = async (
         ...(search !== "" && { search: search }),
     
   }
-  console.log("TOKEN", import.meta.env.VITE_NOTEHUB_TOKEN);
+ 
     const response = await request.get("/notes", {
       params
     });
 
   return {
-    notes: response.data,
+    notes: response.data.notes,
     totalPages: response.data.totalPages,
   };
    

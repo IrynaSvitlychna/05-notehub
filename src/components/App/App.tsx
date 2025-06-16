@@ -1,5 +1,5 @@
 import css from './App.module.css';
-import SearchBox from '../SearchBox/SearchBox';
+import SearchBox from '../SearchBox/SearchBox.tsx';
 import NoteList from '../NoteList/NoteList.tsx';
 import Pagination from '../Pagination/Pagination.tsx';
 import NoteModal from '../NoteModal/NoteModal.tsx';
@@ -27,14 +27,14 @@ export default function App() {
   const { data, isLoading, isError } = useQuery<
     PaginatedNotesResponse>({
       queryKey: ["notes", currentPage, debouncedSearchQuery],
-    queryFn: () => fetchNotes(currentPage, debouncedSearchQuery),
-    enabled: true,
-    placeholderData: keepPreviousData,
-    })
+      queryFn: () => fetchNotes(currentPage, debouncedSearchQuery),
+      // enabled: true,
+      placeholderData: keepPreviousData,
+    });
 
 
-  const handleSearch = (newQuery: string) => {
-    setCurrentQuery(newQuery);
+  const handleSearch = (value: string) => {
+    setCurrentQuery(value);
     setCurrentPage(1); 
   };
 
