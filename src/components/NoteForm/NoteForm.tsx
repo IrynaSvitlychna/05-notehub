@@ -53,7 +53,7 @@ export default function NoteForm({ onClose } : NoteFormProps){
   const initialValues: FieldsValues = {
     title: "",
     content: "",
-    tag: ""
+    tag: "Todo"
   }
 
   return (
@@ -78,7 +78,7 @@ export default function NoteForm({ onClose } : NoteFormProps){
       as="textarea"
       id="content"
       name="content"
-      rows="8"
+      rows={8}
       className={css.textarea}
     />
     <ErrorMessage
